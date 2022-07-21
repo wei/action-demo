@@ -13,4 +13,4 @@ jobs:
       - name: Publish Quote of the Day
         run: |
           QUOTE=$(curl -s https://api.quotable.io/random | jq '"\(.content) - _\(.author)_"')
-          curl -s -X "${{ secrets.WEBHOOK_URL }}" -d "content=$QUOTE"
+          curl -s -X POST "${{ secrets.WEBHOOK_URL }}" -d "content=$QUOTE"
